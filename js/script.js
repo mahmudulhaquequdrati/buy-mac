@@ -2,27 +2,68 @@
 function memoryCost(mcost) {
   var memoryExtraCostText = document.getElementById("memory-cost");
   var memoryExtraCost = memoryExtraCostText.innerText;
-  memoryExtraCostText.innerText = parseInt(mcost);
+  memoryExtraCostText.innerText = mcost;
+  totalCost();
+  finalTotal();
 }
 
 // storage click
 function storageCost(scost) {
   var storageExtraCostText = document.getElementById("storage-cost");
   var storageExtraCost = storageExtraCostText.innerText;
-  storageExtraCostText.innerText = parseInt(scost);
+  storageExtraCostText.innerText = scost;
+  totalCost();
+  finalTotal();
 }
 
 // delivery charge
 function deliveryCost(dcost) {
   var deliveryCostText = document.getElementById("delivery-cost");
   var deliveryCostTotal = deliveryCostText.innerText;
-  deliveryCostText.innerText = parseInt(dcost);
+  deliveryCostText.innerText = dcost;
+  totalCost();
+  finalTotal();
+}
+//getting input
+function getInputValue(priceId) {
+  var bestPriceText = document.getElementById(priceId);
+  var bestPrice = parseInt(bestPriceText.innerText);
+  return bestPrice;
 }
 
-// calculate total
-// function totalCalculation(){
+//calculate total
+function totalCost() {
+  var bestPriceTotal = getInputValue("best-price");
+  var mCostTotal = getInputValue("memory-cost");
+  var sCostTotal = getInputValue("storage-cost");
+  var dCostTotal = getInputValue("delivery-cost");
 
-// }
+  var total = bestPriceTotal + mCostTotal + sCostTotal + dCostTotal;
+  //show
+  document.getElementById("total-cost").innerText = total;
+
+  return total;
+}
+// final value
+function finalTotal() {
+  let finalTotal = document.getElementById("final-value");
+  finalTotal.innerText = totalCost();
+
+  // cupon
+}
+//
+document.getElementById("promo-btn").addEventListener("click", function () {
+  var cuponInputText = document.getElementById("promo-input");
+  var cuponInput = cuponInputText.value;
+  if (cuponInput == "stevekaku") {
+    var cupon = document.getElementById("total-cost");
+    var cuponDiscount =
+      parseFloat(cupon.innerText) - parseFloat(cupon.innerText) * 0.2;
+
+    document.getElementById("final-value").innerText = cuponDiscount;
+  }
+  cuponInputText.value = "";
+});
 // 8gb memory btn click
 document.getElementById("8gb-memory").addEventListener("click", function () {
   memoryCost(0);
