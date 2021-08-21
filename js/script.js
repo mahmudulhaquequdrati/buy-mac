@@ -1,26 +1,18 @@
 //memory Click
-function memoryCost(mcost) {
-  var memoryExtraCostText = document.getElementById("memory-cost");
-  var memoryExtraCost = memoryExtraCostText.innerText;
-  memoryExtraCostText.innerText = mcost;
+function memoryCost(memorycost) {
+  document.getElementById("memory-cost").innerText = memorycost;
   totalCost();
   finalTotal();
 }
-
 // storage click
-function storageCost(scost) {
-  var storageExtraCostText = document.getElementById("storage-cost");
-  var storageExtraCost = storageExtraCostText.innerText;
-  storageExtraCostText.innerText = scost;
+function storageCost(storagecost) {
+  document.getElementById("storage-cost").innerText = storagecost;
   totalCost();
   finalTotal();
 }
-
 // delivery charge
-function deliveryCost(dcost) {
-  var deliveryCostText = document.getElementById("delivery-cost");
-  var deliveryCostTotal = deliveryCostText.innerText;
-  deliveryCostText.innerText = dcost;
+function deliveryCost(deliverycost) {
+  document.getElementById("delivery-cost").innerText = deliverycost;
   totalCost();
   finalTotal();
 }
@@ -30,16 +22,13 @@ function getInputValue(priceId) {
   var bestPrice = parseInt(bestPriceText.innerText);
   return bestPrice;
 }
-
 //calculate total
 function totalCost() {
   var bestPriceTotal = getInputValue("best-price");
   var mCostTotal = getInputValue("memory-cost");
   var sCostTotal = getInputValue("storage-cost");
   var dCostTotal = getInputValue("delivery-cost");
-
   var total = bestPriceTotal + mCostTotal + sCostTotal + dCostTotal;
-  //show
   document.getElementById("total-cost").innerText = total;
 
   return total;
@@ -48,10 +37,8 @@ function totalCost() {
 function finalTotal() {
   let finalTotal = document.getElementById("final-value");
   finalTotal.innerText = totalCost();
-
-  // cupon
 }
-//
+// promo code part
 document.getElementById("promo-btn").addEventListener("click", function () {
   var cuponInputText = document.getElementById("promo-input");
   var cuponInput = cuponInputText.value;
@@ -84,12 +71,10 @@ document.getElementById("512gb-storage").addEventListener("click", function () {
 document.getElementById("1tb-storage").addEventListener("click", function () {
   storageCost(180);
 });
-
 // prime delivery
 document.getElementById("free-delivery").addEventListener("click", function () {
   deliveryCost(0);
 });
-
 // cost delivery
 document
   .getElementById("charge-delivery")

@@ -6,6 +6,7 @@ body {
 .main-section {
   display: flex;
 }
+/* left col start */
 .img-mac {
   width: 50%;
   margin: 40px;
@@ -16,10 +17,11 @@ body {
   justify-content: center;
   width: 50%;
 }
+/* right col start */
+
 .info-section {
   width: 50%;
 }
-/* product details */
 h1 {
   font-size: 40px;
 }
@@ -29,22 +31,20 @@ h1 {
 .memory {
   margin-top: 20px;
 }
-.memory-h,
-.storage-h,
-.delivery-h {
+.memory-title,
+.storage-title,
+.delivery-title {
   margin-bottom: 5px;
 }
 .price-range {
   width: 35%;
-  /* display: flex; */
   line-height: 10px;
   margin: 30px 0;
-  /* justify-content: space-between; */
 }
 .price-amount {
   margin-left: 30px;
 }
-.price-name {
+.price-names {
   display: flex;
 }
 
