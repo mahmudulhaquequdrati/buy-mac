@@ -47,6 +47,7 @@ h1 {
 .price-name {
   display: flex;
 }
+
 .total-price {
   display: flex;
   justify-content: space-between;
